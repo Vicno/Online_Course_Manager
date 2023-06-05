@@ -1,24 +1,18 @@
 <template>
-  <div class="q-pa-md row items-start q-gutter-md">
-    <q-card class="my-card">
-      <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-
-      <q-card-section>
-        <div class="text-h6">Our Changing Planet</div>
-        <div class="text-subtitle2">by John Doe</div>
-      </q-card-section>
-
-      <q-card-section class="q-pt-none">
-        {{ lorem }}
-      </q-card-section>
-    </q-card>
+  <div>
+    <CoursesCard v-for="course in courses" :key="course.name" v-bind="course" />
   </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
+import CoursesCard from "src/components/CoursesCard.vue";
+import courses from "src/store/courses";
 
 export default defineComponent({
   name: "AvailableCourses",
+  components: {
+    CoursesCard,
+  },
 });
 </script>

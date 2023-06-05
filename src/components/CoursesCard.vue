@@ -14,7 +14,7 @@
         <div id="q-app" style="min-height: 100vh">
           <div class="q-pa-md">
             <q-rating
-              v-model="model"
+              :value="score"
               max="5"
               size="3.5em"
               color="yellow"
@@ -27,29 +27,44 @@
         </div>
       </q-card-section>
       <q-card-section>
-        <div>Feature <q-badge color="primary">v1.0.0+</q-badge></div>
+        <div>
+          <q-avatar></q-avatar> <q-badge color="primary">v1.0.0+</q-badge>
+        </div>
       </q-card-section>
     </q-card>
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
 import { defineComponent } from "vue";
 
-export default defineComponent *
-  {
-    name: "CoursesCard",
-    props: {
-      card: {
-        type: Object,
-        required: True,
-      },
+export default defineComponent({
+  name: "CoursesCard",
+  props: {
+    name: {
+      type: String,
+      required: true,
     },
-    setup() {
-      return {
-        model: ref(score),
-      };
+    description: {
+      type: String,
+      default: "",
     },
-  };
+    score: {
+      type: Number,
+      default: 0,
+    },
+    duration: {
+      type: String,
+      default: "",
+    },
+    tag: {
+      type: String,
+      default: "",
+    },
+    imageSrc: {
+      type: String,
+      default: "",
+    },
+  },
+});
 </script>
